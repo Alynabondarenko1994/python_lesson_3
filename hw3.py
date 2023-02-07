@@ -27,13 +27,12 @@ sum=0
 import re 
 def isCyrillic(word): 
  return bool(re.search('[a-zA-Z]', word)) 
-if isCyrillic(word): 
-    for i in word:   
+for i in word: 
+    if isCyrillic(word):    
        for k,v in eng.items():   
            if i in v:   
               sum+=k   
-else: 
-   for i in word: 
+    else: 
        for k, v in rus.items():   
            if i in v:   
                sum+=k 
