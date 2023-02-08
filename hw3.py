@@ -24,17 +24,17 @@ rus= {1:'АВЕИНОРСТ', 2:'ДКЛМПУ', 3:'БГЁЬЯ', 4:'ЙЫ', 5:'Ж�
  
 word=input('Введите слово:').upper() 
 sum=0 
-import re 
-def isCyrillic(word): 
- return bool(re.search('[a-zA-Z]', word)) 
-for i in word: 
-    if isCyrillic(word):    
-       for k,v in eng.items():   
-           if i in v:   
-              sum+=k   
+ 
+alph=['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н',\
+        'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю']
+for i in range(len(word)): 
+    if word[i] not in alph:    
+        for k,v in eng.items():   
+            if word[i] in v:   
+                sum+=k   
     else: 
-       for k, v in rus.items():   
-           if i in v:   
-               sum+=k 
+        for k,v in rus.items():   
+            if word[i] in v:   
+                sum+=k
 print(f'Стоимость введенного слова {word} равна {sum}!')
 
